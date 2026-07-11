@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Budget Tracker</h2>
+<h3>รวมทั้งหมด: {{ total_amount }}</h3>
+
+<form method="POST" action="/add">
+    <input type="text" name="category" placeholder="หมวดหมู่" required>
+    <input type="number" step="0.01" name="amount" placeholder="จำนวนเงิน" required>
+    <button type="submit">เพิ่ม</button>
+</form>
+
+<a href="/export"><button>ดาวน์โหลด CSV</button></a>
+
+<table>
+    <tr>
+        <th>ID</th><th>หมวดหมู่</th><th>จำนวนเงิน</th><th>จัดการ</th>
+    </tr>
+    {% for e in expenses %}
+    <tr>
+        <td>{{ e.id }}</td>
+        <td>{{ e.category }}</td>
+        <td>{{ e.amount }}</td>
+        <td>
+            <a href="/delete/{{ e.id }}">ลบ</a>
+            <form method="POST" action="/edit/{{ e.id }}" style="display:inline;">
+                <input type="text" name="category" value="{{ e.category }}">
+                <input type="number" step="0.01" name="amount" value="{{ e.amount }}">
+                <button type="submit">แก้ไข</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>สรุปรายจ่าย</h3>
+<canvas id="expenseChart"></canvas>
+<script>
+    const ctx = document.getElementById('expenseChart').getContext('2d');
+    const expenseChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [{% for e in expenses %}"{{ e.category }}"{% if not loop.last %},{% endif %}{% endfor %}],
+            datasets: [{
+                data: [{% for e in expenses %}{{ e.amount }}{% if not loop.last %},{% endif %}{% endfor %}],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.7)',
+                    'rgba(255, 206, 86, 0.7)',
+                    'rgba(75, 192, 192, 0.7)',
+                    'rgba(153, 102, 255, 0.7)',
+                    'rgba(255, 159, 64, 0.7)'
+                ]
+            }]
+        }
+    });
+</script>
+{% endblock %}
