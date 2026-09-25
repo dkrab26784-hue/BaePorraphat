@@ -122,23 +122,22 @@
     <img src="825256771_2630828140688148_6933787000340275996_n.jpg" alt="รูปเพลงภัทร">
   </div>
 
-  <h1 class="headline" id="headline">ขอโทษนะเพลงภัทร 🙏</h1>
+  <h1 class="headline" id="headline">ขอโทษนะเพลงภัทร 🥹</h1>
 
   <p class="message" id="message">
-    เมื่อกี้เราพูดโดยไม่ทันคิด คำพูดที่หลุดออกไปทำให้เพลงภัทรไม่สบายใจ
-    เราขอโทษจริง ๆ นะ ไม่ได้ตั้งใจจะทำให้รู้สึกแบบนั้นเลย
+    เมื่อกี้เราพูดไม่ทันคิด ทำให้ไม่สบายใจ เราขอโทษจริง ๆ นะ 💛
   </p>
 
-  <p class="prompt" id="prompt">หายงอนให้เราหน่อยได้มั้ย?</p>
+  <p class="prompt" id="prompt">หายงอนให้เราหน่อยนะ 🥺</p>
 
   <div class="action-zone" id="zone">
     <button class="btn btn-still" id="stillMad">ยังงอนอยู่ 😤</button>
-    <button class="btn btn-forgive" id="forgive">หายงอนแล้ว 🙂</button>
+    <button class="btn btn-forgive" id="forgive">หายงอนแล้ว 😊</button>
   </div>
 
   <p class="tease" id="tease"></p>
 
-  <p class="signature">ขอโทษจริง ๆ นะ 🙏</p>
+  <p class="signature">ขอบคุณที่อ่านมาถึงตรงนี้นะ 💛</p>
 </div>
 
 <script>
@@ -175,11 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const forgiveBtn = document.getElementById('forgive');
   const teaseEl = document.getElementById('tease');
   const teaseMessages = [
-    'เอ๊ะ! หนีไปไหนน่ะ 🙂',
-    'ให้โอกาสเราสักครั้งน้า',
+    'เอ๊ะ! หนีไปไหนน่ะ 😳',
+    'ให้โอกาสเราสักครั้งน้า 🥺',
     'งอนได้ แต่ห้ามหายไปไหนนะ',
-    'จะไม่ให้จับเลยจริงดิ',
-    'โอเคเรายอมทุกอย่าง ขอแค่ยิ้มให้หน่อย'
+    'จะไม่ให้จับเลยจริงดิ 😭',
+    'ขอแค่ยิ้มให้หน่อยนะ 💛'
   ];
   let dodgeCount = 0;
   let dodging = false;
@@ -226,8 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
   forgiveBtn.addEventListener('click', () => {
     if (forgiven) return;
     forgiven = true;
-    headline.textContent = 'ขอบคุณที่ใจดีกับเรานะ 🙂';
-    message.textContent = 'เราจะพยายามคิดก่อนพูดให้มากขึ้น ขอบคุณที่ให้อภัยกันนะ';
+    headline.textContent = 'ขอบคุณที่ใจดีกับเรานะ 😊';
+    message.textContent = 'จะพยายามคิดก่อนพูดให้มากขึ้นนะ ขอบคุณที่ให้อภัยกัน 💛';
     prompt.style.display = 'none';
     zone.style.display = 'none';
     teaseEl.style.display = 'none';
