@@ -118,19 +118,18 @@
 <div class="card">
   <p class="eyebrow">จดหมายน้อยจากใจ 💌</p>
 
-  <!-- ✏️ อยากใส่รูปเธอ: เอารูปไฟล์ .jpg มาไว้โฟลเดอร์เดียวกับ index.html แล้วลบ <span> ด้านล่าง เปลี่ยนเป็น <img src="her-photo.jpg" alt="รูปเธอ"> -->
   <div class="photo-frame" id="photoFrame">
-    <span>📷<br>ใส่รูปเพลงภัทรตรงนี้นะ</span>
+    <img src="her-photo.jpg" alt="รูปเพลงภัทร">
   </div>
 
   <h1 class="headline" id="headline">ขอโทษนะเพลงภัทร 🥺</h1>
 
   <p class="message" id="message">
-    เมื่อกี้ผมพูดโดยไม่ทันคิด คำพูดที่หลุดออกไปทำให้เพลงภัทรไม่สบายใจ
-    ผมขอโทษจริง ๆ นะ ใจผมไม่เคยอยากทำให้เพลงภัทรเสียใจเลยสักนิดเดียว
+    เมื่อกี้เราพูดโดยไม่ทันคิด คำพูดที่หลุดออกไปทำให้เพลงภัทรไม่สบายใจ
+    เราขอโทษจริง ๆ นะ ใจเราไม่เคยอยากทำให้เพลงภัทรเสียใจเลยสักนิดเดียว
   </p>
 
-  <p class="prompt" id="prompt">หายงอนให้ผมหน่อยได้มั้ย?</p>
+  <p class="prompt" id="prompt">หายงอนให้เราหน่อยได้มั้ย?</p>
 
   <div class="action-zone" id="zone">
     <button class="btn btn-still" id="stillMad">ยังงอนอยู่ 😤</button>
@@ -177,10 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const teaseEl = document.getElementById('tease');
   const teaseMessages = [
     'เอ๊ะ! หนีไปไหนน่ะ 🥺',
-    'ให้โอกาสผมสักครั้งน้า',
+    'ให้โอกาสเราสักครั้งน้า',
     'งอนได้ แต่ห้ามหายไปไหนนะ',
     'จะไม่ให้จับเลยจริงดิ 😭',
-    'โอเคผมยอมทุกอย่าง ขอแค่ยิ้มให้หน่อย 🥹'
+    'โอเคเรายอมทุกอย่าง ขอแค่ยิ้มให้หน่อย 🥹'
   ];
   let dodgeCount = 0;
   let dodging = false;
@@ -227,8 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
   forgiveBtn.addEventListener('click', () => {
     if (forgiven) return;
     forgiven = true;
-    headline.textContent = 'เย่! ขอบคุณที่ใจดีกับผมนะ 💕';
-    message.textContent = 'ผมจะพยายามคิดก่อนพูดให้มากขึ้น เพราะเธอสำคัญกับผมที่สุดเลย รักเธอนะครับ 🥰';
+    headline.textContent = 'เย่! ขอบคุณที่ใจดีกับเรานะ 💕';
+    message.textContent = 'เราจะพยายามคิดก่อนพูดให้มากขึ้น เพราะเธอสำคัญกับเราที่สุดเลย รักเธอนะครับ 🥰';
     prompt.style.display = 'none';
     zone.style.display = 'none';
     teaseEl.style.display = 'none';
