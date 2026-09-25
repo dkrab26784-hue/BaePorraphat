@@ -125,10 +125,11 @@
   <h1 class="headline" id="headline">ขอโทษนะเพลงภัทร 🥹</h1>
 
   <p class="message" id="message">
-    เมื่อกี้เราพูดไม่ทันคิด ทำให้ไม่สบายใจ เราขอโทษจริง ๆ นะ 💛
+    เรารู้ว่าคำพูดเมื่อกี้ทำให้ไม่สบายใจ พอมานึกดูแล้วรู้สึกแย่กับตัวเองมาก
+    ไม่มีข้อแก้ตัว ขอโทษจริง ๆ นะ 💛
   </p>
 
-  <p class="prompt" id="prompt">หายงอนให้เราหน่อยนะ 🥺</p>
+  <p class="prompt" id="prompt">ให้อภัยเราสักครั้งได้ไหม 🥺</p>
 
   <div class="action-zone" id="zone">
     <button class="btn btn-still" id="stillMad">ยังงอนอยู่ 😤</button>
@@ -137,7 +138,7 @@
 
   <p class="tease" id="tease"></p>
 
-  <p class="signature">ขอบคุณที่อ่านมาถึงตรงนี้นะ 💛</p>
+  <p class="signature">ทุกคำพูดมาจากใจจริง ๆ นะ 💛</p>
 </div>
 
 <script>
@@ -225,8 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
   forgiveBtn.addEventListener('click', () => {
     if (forgiven) return;
     forgiven = true;
-    headline.textContent = 'ขอบคุณที่ใจดีกับเรานะ 😊';
-    message.textContent = 'จะพยายามคิดก่อนพูดให้มากขึ้นนะ ขอบคุณที่ให้อภัยกัน 💛';
+    headline.textContent = 'ขอบคุณจริง ๆ ที่ใจดีกับเรา 😊';
+    message.textContent = 'เราจะพยายามฟังและคิดก่อนพูดให้มากขึ้นนะ ขอบคุณที่ให้โอกาสกัน 💛';
     prompt.style.display = 'none';
     zone.style.display = 'none';
     teaseEl.style.display = 'none';
