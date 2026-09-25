@@ -1,12 +1,258 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trade Journal</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ขอโทษนะที่รัก 💗</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#FFE8D6;
+    --bg2:#FFD3E0;
+    --bg3:#E7D6F5;
+    --ink:#6B3F4B;
+    --ink-soft:#9C6B76;
+    --card-bg:rgba(255,255,255,.6);
+    --card-border:rgba(255,255,255,.85);
+    --accent-strong:#FF6F91;
+    --accent-strong2:#FFB56B;
+    --accent-soft:#F3AFC2;
+    --shadow:0 20px 60px rgba(180,90,120,.25);
+    --font-display:'Mali',cursive;
+    --font-body:'Sarabun',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;min-height:100%;}
+  body{
+    font-family:var(--font-body);
+    background:linear-gradient(135deg,var(--bg1),var(--bg2) 55%,var(--bg3));
+    background-attachment:fixed;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 16px;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  .hearts-bg{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+  .heart-particle{position:absolute;bottom:-10%;opacity:0;animation:floatUp linear infinite;will-change:transform;}
+  @keyframes floatUp{
+    0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0;}
+    12%{opacity:.75;}
+    100%{transform:translateY(-115vh) translateX(var(--drift,20px)) rotate(360deg);opacity:0;}
+  }
+
+  .music-btn{
+    position:fixed;top:18px;right:18px;width:48px;height:48px;border-radius:50%;
+    border:none;background:rgba(255,255,255,.75);backdrop-filter:blur(6px);
+    font-size:20px;cursor:pointer;box-shadow:var(--shadow);z-index:50;
+    display:flex;align-items:center;justify-content:center;transition:transform .3s ease;
+  }
+  .music-btn.spinning{animation:spin 4s linear infinite;}
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+  .card{
+    position:relative;z-index:1;width:100%;max-width:420px;
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:28px;padding:36px 28px 30px;text-align:center;
+    box-shadow:var(--shadow);backdrop-filter:blur(14px);
+    animation:cardIn .7s ease-out both;
+  }
+  @keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.96);}to{opacity:1;transform:translateY(0) scale(1);}}
+
+  .eyebrow{font-family:var(--font-display);color:var(--ink-soft);font-size:15px;margin:0 0 18px;}
+
+  .photo-frame{
+    width:170px;height:170px;margin:0 auto 22px;background:rgba(255,255,255,.55);
+    border:6px solid #fff;border-radius:14px;box-shadow:0 12px 30px rgba(180,90,120,.2);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+    transform:rotate(-6deg);transition:transform .7s ease;
+    font-family:var(--font-body);color:var(--ink-soft);font-size:13px;line-height:1.5;padding:10px;
+  }
+  .photo-frame img{width:100%;height:100%;object-fit:cover;}
+  .photo-frame.forgiven{transform:rotate(0deg) scale(1.08);}
+
+  .headline{font-family:var(--font-display);font-weight:700;color:var(--ink);
+    font-size:clamp(26px,7vw,34px);margin:0 0 14px;line-height:1.35;}
+
+  .message{font-size:15.5px;line-height:1.75;color:var(--ink);margin:0 0 20px;}
+
+  .prompt{font-family:var(--font-display);color:var(--ink-soft);font-size:17px;margin:0 0 14px;}
+
+  .action-zone{position:relative;height:130px;display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:8px;}
+
+  .btn{border:none;border-radius:999px;padding:14px 22px;font-family:var(--font-body);
+    font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 8px 20px rgba(180,90,120,.25);
+    transition:transform .35s ease,left .35s ease,top .35s ease;white-space:nowrap;}
+  .btn-still{background:#fff;color:var(--ink-soft);border:2px solid var(--accent-soft);touch-action:none;}
+  .btn-forgive{background:linear-gradient(135deg,var(--accent-strong),var(--accent-strong2));color:#fff;}
+
+  .tease{font-size:13.5px;color:var(--ink-soft);font-style:italic;min-height:18px;margin:0 0 6px;}
+
+  .signature{font-family:var(--font-display);font-size:14px;color:var(--ink-soft);margin-top:8px;}
+
+  .confetti-heart{position:fixed;left:50%;top:42%;font-size:24px;pointer-events:none;z-index:100;
+    animation:burstOut 1s ease-out forwards;}
+  @keyframes burstOut{
+    0%{transform:translate(-50%,-50%) scale(.4);opacity:1;}
+    100%{transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(1.1);opacity:0;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hearts-bg" id="heartsBg"></div>
+
+<button class="music-btn" id="musicBtn" title="เปิด/หยุดเพลง">🎵</button>
+<audio id="bgm" src="song.mp3" loop preload="auto"></audio>
+
+<div class="card">
+  <p class="eyebrow">จดหมายน้อยจากใจ 💌</p>
+
+  <!-- ✏️ อยากใส่รูปเธอ: เอารูปไฟล์ .jpg มาไว้โฟลเดอร์เดียวกับ index.html แล้วลบ <span> ด้านล่าง เปลี่ยนเป็น <img src="her-photo.jpg" alt="รูปเธอ"> -->
+  <div class="photo-frame" id="photoFrame">
+    <span>📷<br>ใส่รูปเธอตรงนี้นะ</span>
+  </div>
+
+  <h1 class="headline" id="headline">ขอโทษนะที่รัก 🥺</h1>
+
+  <p class="message" id="message">
+    เมื่อกี้ผมพูดโดยไม่ทันคิด คำพูดที่หลุดออกไปทำให้เธอไม่สบายใจ
+    ผมขอโทษจริง ๆ นะ ใจผมไม่เคยอยากทำให้เธอเสียใจเลยสักนิดเดียว
+  </p>
+
+  <p class="prompt" id="prompt">หายงอนให้ผมหน่อยได้มั้ย?</p>
+
+  <div class="action-zone" id="zone">
+    <button class="btn btn-still" id="stillMad">ยังงอนอยู่ 😤</button>
+    <button class="btn btn-forgive" id="forgive">หายงอนแล้ว 💗</button>
+  </div>
+
+  <p class="tease" id="tease"></p>
+
+  <p class="signature">จากผู้ชายที่รักเธอที่สุด 💗</p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ---------- ลอยหัวใจพื้นหลัง ----------
+  const heartsBg = document.getElementById('heartsBg');
+  const heartEmojis = ['💗','💕','💖','🌸','✨'];
+  const totalHearts = window.innerWidth < 600 ? 12 : 18;
+  for (let i = 0; i < totalHearts; i++) {
+    const el = document.createElement('span');
+    el.className = 'heart-particle';
+    el.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+    el.style.left = (Math.random() * 100) + 'vw';
+    el.style.fontSize = (14 + Math.random() * 18) + 'px';
+    el.style.animationDuration = (9 + Math.random() * 10) + 's';
+    el.style.animationDelay = '-' + (Math.random() * 10) + 's';
+    el.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
+    heartsBg.appendChild(el);
+  }
+
+  // ---------- เพลงประกอบ ----------
+  const bgm = document.getElementById('bgm');
+  const musicBtn = document.getElementById('musicBtn');
+  musicBtn.addEventListener('click', () => {
+    if (bgm.paused) bgm.play().catch(() => {}); else bgm.pause();
+  });
+  bgm.addEventListener('play', () => { musicBtn.textContent = '⏸️'; musicBtn.classList.add('spinning'); });
+  bgm.addEventListener('pause', () => { musicBtn.textContent = '🎵'; musicBtn.classList.remove('spinning'); });
+
+  // ---------- ปุ่ม "ยังงอนอยู่" ที่หนีทุกครั้งที่จะกด ----------
+  const zone = document.getElementById('zone');
+  const stillBtn = document.getElementById('stillMad');
+  const forgiveBtn = document.getElementById('forgive');
+  const teaseEl = document.getElementById('tease');
+  const teaseMessages = [
+    'เอ๊ะ! หนีไปไหนน่ะ 🥺',
+    'ให้โอกาสผมสักครั้งน้า',
+    'งอนได้ แต่ห้ามหายไปไหนนะ',
+    'จะไม่ให้จับเลยจริงดิ 😭',
+    'โอเคผมยอมทุกอย่าง ขอแค่ยิ้มให้หน่อย 🥹'
+  ];
+  let dodgeCount = 0;
+  let dodging = false;
+
+  function dodge(e) {
+    if (dodging) return;
+    dodging = true;
+    setTimeout(() => dodging = false, 60);
+    if (e && e.preventDefault) e.preventDefault();
+
+    const zoneRect = zone.getBoundingClientRect();
+    const btnRect = stillBtn.getBoundingClientRect();
+
+    if (getComputedStyle(stillBtn).position !== 'absolute') {
+      stillBtn.style.position = 'absolute';
+      stillBtn.style.left = (btnRect.left - zoneRect.left) + 'px';
+      stillBtn.style.top = (btnRect.top - zoneRect.top) + 'px';
+      void stillBtn.offsetWidth; // reflow so the move below transitions smoothly
+    }
+
+    const maxX = Math.max(zoneRect.width - btnRect.width, 0);
+    const maxY = Math.max(zoneRect.height - btnRect.height, 0);
+    stillBtn.style.left = (Math.random() * maxX) + 'px';
+    stillBtn.style.top = (Math.random() * maxY) + 'px';
+    stillBtn.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+
+    dodgeCount++;
+    teaseEl.textContent = teaseMessages[Math.min(dodgeCount - 1, teaseMessages.length - 1)];
+    const scale = Math.min(1 + dodgeCount * 0.05, 1.5);
+    forgiveBtn.style.transform = `scale(${scale})`;
+  }
+
+  stillBtn.addEventListener('pointerenter', dodge);
+  stillBtn.addEventListener('touchstart', dodge, { passive: false });
+  stillBtn.addEventListener('click', e => e.preventDefault());
+
+  // ---------- กด "หายงอนแล้ว" ----------
+  const headline = document.getElementById('headline');
+  const message = document.getElementById('message');
+  const prompt = document.getElementById('prompt');
+  const photoFrame = document.getElementById('photoFrame');
+  let forgiven = false;
+
+  forgiveBtn.addEventListener('click', () => {
+    if (forgiven) return;
+    forgiven = true;
+    headline.textContent = 'เย่! ขอบคุณที่ใจดีกับผมนะ 💕';
+    message.textContent = 'ผมจะพยายามคิดก่อนพูดให้มากขึ้น เพราะเธอสำคัญกับผมที่สุดเลย รักเธอนะครับ 🥰';
+    prompt.style.display = 'none';
+    zone.style.display = 'none';
+    teaseEl.style.display = 'none';
+    photoFrame.classList.add('forgiven');
+    bgm.play().catch(() => {});
+    burstHearts();
+  });
+
+  function burstHearts() {
+    const emojis = ['💗','💕','💖','✨','🌸'];
+    for (let i = 0; i < 28; i++) {
+      const el = document.createElement('span');
+      el.className = 'confetti-heart';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 80 + Math.random() * 160;
+      el.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+      el.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+      el.style.animationDelay = (Math.random() * 0.2) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1300);
+    }
+  }
+});
+</script>
+</body>
 </html>
