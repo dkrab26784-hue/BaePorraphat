@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ขอโทษนะเพลงภัทร 💗</title>
+<title>ขอโทษนะเพลงภัทร</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%97%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,29 +116,29 @@
 <audio id="bgm" src="song.mp3" loop preload="auto"></audio>
 
 <div class="card">
-  <p class="eyebrow">จดหมายน้อยจากใจ 💌</p>
+  <p class="eyebrow">ข้อความเล็ก ๆ ถึงเธอ</p>
 
   <div class="photo-frame" id="photoFrame">
-    <img src="her-photo.jpg" alt="รูปเพลงภัทร">
+    <img src="825256771_2630828140688148_6933787000340275996_n.jpg" alt="รูปเพลงภัทร">
   </div>
 
-  <h1 class="headline" id="headline">ขอโทษนะเพลงภัทร 🥺</h1>
+  <h1 class="headline" id="headline">ขอโทษนะเพลงภัทร 🙏</h1>
 
   <p class="message" id="message">
     เมื่อกี้เราพูดโดยไม่ทันคิด คำพูดที่หลุดออกไปทำให้เพลงภัทรไม่สบายใจ
-    เราขอโทษจริง ๆ นะ ใจเราไม่เคยอยากทำให้เพลงภัทรเสียใจเลยสักนิดเดียว
+    เราขอโทษจริง ๆ นะ ไม่ได้ตั้งใจจะทำให้รู้สึกแบบนั้นเลย
   </p>
 
   <p class="prompt" id="prompt">หายงอนให้เราหน่อยได้มั้ย?</p>
 
   <div class="action-zone" id="zone">
     <button class="btn btn-still" id="stillMad">ยังงอนอยู่ 😤</button>
-    <button class="btn btn-forgive" id="forgive">หายงอนแล้ว 💗</button>
+    <button class="btn btn-forgive" id="forgive">หายงอนแล้ว 🙂</button>
   </div>
 
   <p class="tease" id="tease"></p>
 
-  <p class="signature">จากผู้ชายที่รักเพลงภัทรที่สุด 💗</p>
+  <p class="signature">ขอโทษจริง ๆ นะ 🙏</p>
 </div>
 
 <script>
@@ -175,11 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const forgiveBtn = document.getElementById('forgive');
   const teaseEl = document.getElementById('tease');
   const teaseMessages = [
-    'เอ๊ะ! หนีไปไหนน่ะ 🥺',
+    'เอ๊ะ! หนีไปไหนน่ะ 🙂',
     'ให้โอกาสเราสักครั้งน้า',
     'งอนได้ แต่ห้ามหายไปไหนนะ',
-    'จะไม่ให้จับเลยจริงดิ 😭',
-    'โอเคเรายอมทุกอย่าง ขอแค่ยิ้มให้หน่อย 🥹'
+    'จะไม่ให้จับเลยจริงดิ',
+    'โอเคเรายอมทุกอย่าง ขอแค่ยิ้มให้หน่อย'
   ];
   let dodgeCount = 0;
   let dodging = false;
@@ -226,8 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
   forgiveBtn.addEventListener('click', () => {
     if (forgiven) return;
     forgiven = true;
-    headline.textContent = 'เย่! ขอบคุณที่ใจดีกับเรานะ 💕';
-    message.textContent = 'เราจะพยายามคิดก่อนพูดให้มากขึ้น เพราะเธอสำคัญกับเราที่สุดเลย รักเธอนะครับ 🥰';
+    headline.textContent = 'ขอบคุณที่ใจดีกับเรานะ 🙂';
+    message.textContent = 'เราจะพยายามคิดก่อนพูดให้มากขึ้น ขอบคุณที่ให้อภัยกันนะ';
     prompt.style.display = 'none';
     zone.style.display = 'none';
     teaseEl.style.display = 'none';
